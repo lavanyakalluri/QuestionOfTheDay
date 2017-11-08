@@ -58,16 +58,16 @@ class Statistician: NSObject {
         let pageSize = 10
         let queryBuilder = DataQueryBuilder()
         var totalOpinons = 0
-        var EachOpinion:[Opinion] = []
+        var AllOpinions:[Opinion] = []
         queryBuilder!.setPageSize(Int32(pageSize)).setOffset(0)
         
         while totalOpinons < noOfOpinionsToPull {
             let Opinion = self.dataStoreOpinion?.find(queryBuilder) as! [Opinion]
-            EachOpinion += Opinion
+            AllOpinions += Opinion
             totalOpinons += Opinion.count
             queryBuilder!.prepareNextPage()
         }
-        return EachOpinion
+        return AllOpinions
     }
     
     override init(){

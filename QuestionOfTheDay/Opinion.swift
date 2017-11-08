@@ -8,17 +8,18 @@
 import UIKit
 import Foundation
 
-@objcMembers class Opinion: NSObject {
+@objcMembers
+class Opinion: NSObject {
     // var question: QuestionOfTheDay
-    var answer: Int?
+    var answer: Int = 0
     var objectId: String?
-
+    
     override init(){
         super.init()
         answer = 0
     }
-
-
+    
+    
     init(answer:Int) {
         self.answer = answer
     }

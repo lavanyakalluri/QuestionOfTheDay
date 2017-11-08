@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PFD-t4-DHA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PFD-t4-DHA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -74,7 +74,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" id="uvm-3X-6Pc"/>
                     <connections>
-                        <outlet property="opt1percentage" destination="Y2N-ZE-GS1" id="Gvz-TN-0ze"/>
+                        <outlet property="opt1percentage" destination="Y2N-ZE-GS1" id="woe-Lf-n4b"/>
                         <outlet property="opt2percentage" destination="ovu-oM-Qmq" id="B7r-i0-rrD"/>
                         <outlet property="opt3percentage" destination="dQc-JN-3nq" id="jQV-Vg-2gn"/>
                         <outlet property="option1" destination="Snr-uG-IuN" id="TM0-6c-vHS"/>
@@ -170,7 +170,7 @@
         <scene sceneID="na9-5d-7Si">
             <objects>
                 <tabBarController id="PFD-t4-DHA" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZIM-Bd-xXb">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ZIM-Bd-xXb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

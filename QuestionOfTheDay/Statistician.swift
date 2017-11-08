@@ -21,36 +21,35 @@ class Statistician: NSObject {
         var answer0:Double = 0.0
         var answer1:Double = 0.0
         var answer2:Double = 0.0
-        var PercentOfOpinion:[Double] = []
-        for dar in Allopinion{
-            if dar.answer == 0{
+        var Percentage:[Double] = []
+        for i in Allopinion{
+            if i.answer == 0{
                 answer0 = answer0 + 1 }
             
-            if dar.answer == 1{
+            if i.answer == 1{
                 answer1 = answer1 + 1 }
             
-            if dar.answer == 2{
+            if i.answer == 2{
                 answer2 = answer2 + 1 }
             
         }
-        PercentOfOpinion.append(Double(answer0/Double(Allopinion.count))*100.0)
-        PercentOfOpinion.append(Double(answer1/Double(Allopinion.count))*100.0)
-        PercentOfOpinion.append(Double(answer2/Double(Allopinion.count))*100.0)
-        return PercentOfOpinion
+        Percentage.append(Double(answer0/Double(Allopinion.count))*100.0)
+        Percentage.append(Double(answer1/Double(Allopinion.count))*100.0)
+        Percentage.append(Double(answer2/Double(Allopinion.count))*100.0)
+        return Percentage
     }
     
     
     
-    func saveOpinion(Opinion: Opinion) {
-        dataStoreOpinion = backendless.data.of(Opinion.ofClass())
-        _ = dataStoreOpinion?.save(Opinion) as! Opinion
-        
+    func saveOpinion(opinion:Opinion){
+        dataStoreOpinion.save(opinion)
     }
     
     func  fetchQuestionOfTheDay() ->QuestionOfTheDay {
         dataStoreQuestionOfTheDay = backendless.data.of(QuestionOfTheDay.ofClass())
         let DatabaseQuestion = dataStoreQuestionOfTheDay.find(byId: "DC4FC7B7-6F96-AD11-FF89-EE842087A500") as! QuestionOfTheDay
-        return DatabaseQuestion    }
+        return DatabaseQuestion
+    }
     
     
     func GetAllOpinions() ->[Opinion]{
@@ -58,21 +57,24 @@ class Statistician: NSObject {
         let noOfOpinionsToPull = dataStoreOpinion?.getObjectCount() as! Int
         let pageSize = 10
         let queryBuilder = DataQueryBuilder()
-        var noOfOpinionPulled = 0
-        var EveryOpinion:[Opinion] = []
+        var totalOpinons = 0
+        var EachOpinion:[Opinion] = []
         queryBuilder!.setPageSize(Int32(pageSize)).setOffset(0)
         
-        while noOfOpinionPulled < noOfOpinionsToPull {
+        while totalOpinons < noOfOpinionsToPull {
             let Opinion = self.dataStoreOpinion?.find(queryBuilder) as! [Opinion]
-            EveryOpinion += Opinion
-            noOfOpinionPulled += Opinion.count
+            EachOpinion += Opinion
+            totalOpinons += Opinion.count
             queryBuilder!.prepareNextPage()
         }
-        return EveryOpinion
+        return EachOpinion
     }
     
     override init(){
         backendless.hostURL = SERVER_URL
         backendless.initApp(APPLICATION_ID, apiKey: API_KEY)
+        
+        dataStoreQuestionOfTheDay = backendless.data.of(QuestionOfTheDay.ofClass())
+        dataStoreOpinion = backendless.data.of(Opinion.ofClass())
     }
 }

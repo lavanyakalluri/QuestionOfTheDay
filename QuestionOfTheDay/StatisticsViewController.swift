@@ -33,7 +33,6 @@ class StatisticsViewController: UIViewController {
         opt2percentage.text = String(format: "%.2f%%",answer[1])
         opt3percentage.text = String(format: "%.2f%%",answer[2])
 
-        // Do any additional setup after loading the view.
     }
     
     
@@ -44,18 +43,9 @@ class StatisticsViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
